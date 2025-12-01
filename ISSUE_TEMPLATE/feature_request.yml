@@ -1,0 +1,13 @@
+name: 功能需求
+description: 提出新功能
+title: "[Feat] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: 需求概述
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 验收标准
