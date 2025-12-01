@@ -1,0 +1,4 @@
+# 按路径分配代码审查责任人
+
+/infra/ @team-admin
+/ @team-dev
