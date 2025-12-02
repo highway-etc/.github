@@ -1,0 +1,33 @@
+name: Build streaming JAR
+
+on:
+  push:
+    paths:
+      - "streaming/**"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: "maven"
+
+      - name: Build with Maven
+        working-directory: streaming
+        run: mvn -U -DskipTests package
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: streaming-jars
+          path: |
+            streaming/target/*.jar
